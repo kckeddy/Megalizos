@@ -1,0 +1,4 @@
+import { weeklyStreams } from '@/services/releases';
+export type Period = '7 days' | '30 days' | '90 days';
+export const platforms = [ { name: 'Spotify', share: 0.62, color: 'primary' }, { name: 'Apple Music', share: 0.21, color: 'success' }, { name: 'YouTube Music', share: 0.10, color: 'warning' }, { name: 'Other stores', share: 0.07, color: 'subtle' } ] as const;
+export function getPeriodInsights(streams: number, period: Period) { const factor = period === '7 days' ? 0.101 : period === '30 days' ? 0.41 : 1; const count = Math.round(streams * factor); return { count, listeners: Math.round(count * 0.63), saves: Math.round(count * 0.042), growth: period === '7 days' ? '18.6%' : period === '30 days' ? '24.2%' : '36.8%', chart: period === '7 days' ? weeklyStreams.slice(-7) : period === '30 days' ? weeklyStreams : [...weeklyStreams.slice(5), ...weeklyStreams.slice(0, 5)] }; }

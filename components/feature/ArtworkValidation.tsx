@@ -1,0 +1,13 @@
+import { memo } from 'react';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { ArtworkReport } from '@/services/releaseMedia';
+import { colors, fonts, radius, spacing } from '@/constants/theme';
+interface ArtworkValidationProps { report: ArtworkReport | null; checking: boolean; }
+export const ArtworkValidation = memo(function ArtworkValidation({ report, checking }: ArtworkValidationProps) {
+  if (checking) return <View style={styles.row}><ActivityIndicator color={colors.primary} /><Text style={styles.body}>Checking artwork dimensions and format…</Text></View>;
+  if (!report) return <Text style={styles.body}>JPG or PNG · Square · 3000–6000 px per side · Up to 20 MB. Checks run before simulated submission; store approval is not guaranteed.</Text>;
+  const metadata = report.metadata;
+  return <View style={[styles.panel, report.valid ? styles.valid : null]}>{metadata ? <Text style={styles.dimensions}>{metadata.width} × {metadata.height} px{metadata.size !== undefined ? ` · ${(metadata.size / 1048576).toFixed(1)} MB` : ''}</Text> : null}<View style={styles.row}><Feather name={report.valid ? 'check-circle' : 'alert-triangle'} size={20} color={report.valid ? colors.primary : colors.danger} /><Text style={[styles.status, { color: report.valid ? colors.primary : colors.danger }]}>{report.valid ? 'Artwork meets the technical checks' : 'Artwork needs attention'}</Text></View>{report.errors.length > 0 ? <Text accessibilityRole="alert" style={styles.errors}>{report.errors.join('\n\n')}</Text> : null}{report.warnings.length > 0 ? <View style={styles.row}><Feather name="info" size={18} color={colors.warning} /><Text style={styles.warning}>{report.warnings.join('\n')}</Text></View> : null}{!report.valid ? <Text style={styles.body}>You can save this as a draft. Replace the artwork before submitting.</Text> : null}</View>;
+});
+const styles = StyleSheet.create({ panel: { padding: spacing.md, borderRadius: radius.sm, backgroundColor: colors.background, borderWidth: 1, borderColor: colors.border, gap: spacing.md }, valid: { backgroundColor: colors.primaryDark, borderColor: colors.chart }, row: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm }, dimensions: { color: colors.text, fontSize: fonts.section, fontWeight: '600' }, status: { flex: 1, fontSize: fonts.body, fontWeight: '600', lineHeight: 24 }, errors: { color: colors.danger, fontSize: fonts.body, lineHeight: 26 }, warning: { flex: 1, color: colors.warning, fontSize: fonts.body, lineHeight: 26 }, body: { flexShrink: 1, color: colors.subtle, fontSize: fonts.body, lineHeight: 26 } });

@@ -1,0 +1,6 @@
+import { memo } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { colors, fonts, spacing } from '@/constants/theme';
+interface StreamChartProps { values: number[]; compact?: boolean; labels?: [string, string, string]; }
+export const StreamChart = memo(function StreamChart({ values, compact = false, labels = ['Oct 20', 'Oct 23', 'Oct 26'] }: StreamChartProps) { return <View style={styles.wrap}><View style={[styles.chart, { height: compact ? 76 : 160 }]}>{values.map((value, index) => <View key={index} style={[styles.bar, { height: `${Math.max(1, Math.min(100, value))}%`, backgroundColor: index >= values.length - 4 ? colors.primary : colors.chart }]} />)}</View>{!compact ? <View style={styles.labels}><Text style={styles.label}>{labels[0]}</Text><Text style={styles.label}>{labels[1]}</Text><Text style={styles.label}>{labels[2]}</Text></View> : null}</View>; });
+const styles = StyleSheet.create({ wrap: { gap: spacing.md }, chart: { flexDirection: 'row', alignItems: 'flex-end', gap: 6, borderBottomColor: colors.border, borderBottomWidth: 1, paddingTop: spacing.sm }, bar: { flex: 1, borderTopLeftRadius: 4, borderTopRightRadius: 4 }, labels: { flexDirection: 'row', justifyContent: 'space-between' }, label: { color: colors.subtle, fontSize: fonts.small } });
