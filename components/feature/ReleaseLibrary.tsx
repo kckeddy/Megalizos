@@ -1,15 +1,151 @@
 import { useMemo, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { View, Text, FlatList, StyleSheet, TextInput } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Screen, AppHeader, PageHeading } from '@/components/layout/Screen';
 import { Button, Chip } from '@/components/ui/Controls';
 import { ReleaseCard } from '@/components/feature/ReleaseCard';
 import { useReleases } from '@/hooks/useReleases';
 import { colors, fonts, radius, spacing } from '@/constants/theme';
+
 export function ReleaseLibrary() {
- const { releases, ready } = useReleases(); const router = useRouter(); const [filter, setFilter] = useState('All'); const [search, setSearch] = useState('');
- const items = useMemo(() => releases.filter(item => (filter === 'All' || item.status === filter) && (item.title + item.artist).toLowerCase().includes(search.toLowerCase())), [releases, filter, search]);
- return <Screen><AppHeader /><KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}><FlatList data={items} keyExtractor={item => item.id} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={styles.content} ListHeaderComponent={<View><PageHeading eyebrow="YOUR CATALOG" title="Every release. Your story." subtitle="Manage your music, from first draft to live." /><Button label="Create a release" icon="plus" onPress={() => router.push('/upload')} /><View style={styles.summary}><Feather name="disc" size={22} color={colors.primary} /><Text style={styles.summaryText}>{releases.length} releases · {releases.filter(item => item.status === 'Live').length} live in stores</Text></View><View style={styles.search}><Feather name="search" color={colors.subtle} size={18} /><TextInput accessibilityLabel="Search releases" value={search} onChangeText={setSearch} placeholder="Search your music" placeholderTextColor={colors.subtle} style={styles.input} /></View><View style={styles.filters}><Chip label="All" selected={filter === 'All'} onPress={() => setFilter('All')} /><Chip label="Live" selected={filter === 'Live'} onPress={() => setFilter('Live')} /><Chip label="In review" selected={filter === 'In review'} onPress={() => setFilter('In review')} /><Chip label="Draft" selected={filter === 'Draft'} onPress={() => setFilter('Draft')} /></View><Text style={styles.count}>{filter === 'All' ? 'All releases' : filter} · {items.length}</Text></View>} renderItem={({ item }) => <ReleaseCard release={item} onPress={() => router.push({ pathname: '/release/[id]', params: { id: item.id } })} />} ListEmptyComponent={<View style={styles.empty}><Feather name="disc" size={40} color={colors.primary} /><Text style={styles.emptyTitle}>{ready ? 'No releases here yet' : 'Loading your releases'}</Text><Text style={styles.emptyText}>{search ? 'Try a different title or artist name.' : 'Your music deserves to be heard. Start with a new release.'}</Text></View>} /></KeyboardAvoidingView></Screen>;
+  const { releases } = useReleases();
+  const router = useRouter();
+  const [filter, setFilter] = useState('All');
+  const [search, setSearch] = useState('');
+
+  const items = useMemo(
+    () =>
+      releases.filter(
+        (item) =>
+          (filter === 'All' || item.status === filter) &&
+          `${item.title} ${item.artist}`.toLowerCase().includes(search.toLowerCase())
+      ),
+    [releases, filter, search]
+  );
+
+  return (
+    <Screen>
+      <AppHeader />
+
+      <FlatList
+        data={items}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.content}
+        ListHeaderComponent={
+          <View>
+            <View style={styles.headerRow}>
+              <PageHeading
+                eyebrow="Library"
+                title="Release management"
+                subtitle="Track status, metadata, packaging, and performance from one workspace."
+              />
+              <Button label="Upload" onPress={() => router.push('/upload')} icon="plus" />
+            </View>
+
+            <View style={styles.toolbar}>
+              <TextInput
+                value={search}
+                onChangeText={setSearch}
+                placeholder="Search releases"
+                placeholderTextColor={colors.subtle}
+                style={styles.search}
+              />
+            </View>
+
+            <View style={styles.filters}>
+              {['All', 'Live', 'In review', 'Draft'].map((option) => (
+                <Chip
+                  key={option}
+                  label={option}
+                  selected={filter === option}
+                  onPress={() => setFilter(option)}
+                />
+              ))}
+            </View>
+
+            <View style={styles.summaryRow}>
+              <SummaryPill label="Live" value={String(releases.filter((item) => item.status === 'Live').length)} />
+              <SummaryPill label="Drafts" value={String(releases.filter((item) => item.status === 'Draft').length)} />
+              <SummaryPill label="Queued" value={String(releases.filter((item) => item.status === 'In review').length)} />
+            </View>
+          </View>
+        }
+        renderItem={({ item }) => (
+          <ReleaseCard
+            release={item}
+            onPress={() => router.push({ pathname: '/release/[id]', params: { id: item.id } })}
+            compact={false}
+          />
+        )}
+      />
+    </Screen>
+  );
 }
-const styles = StyleSheet.create({ content: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xl }, summary: { paddingVertical: spacing.lg, flexDirection: 'row', gap: spacing.md, alignItems: 'center' }, summaryText: { color: colors.subtle, fontSize: fonts.label }, search: { borderWidth: 1, borderColor: colors.border, borderRadius: radius.sm, backgroundColor: colors.surface, flexDirection: 'row', gap: spacing.sm, alignItems: 'center', paddingHorizontal: spacing.md }, input: { flex: 1, height: 50, color: colors.text, fontSize: fonts.body }, filters: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, paddingVertical: spacing.md }, count: { color: colors.subtle, fontSize: fonts.small, marginBottom: spacing.md }, empty: { paddingVertical: spacing.xxl, alignItems: 'center', gap: spacing.md }, emptyTitle: { color: colors.text, fontSize: fonts.section, fontWeight: '600' }, emptyText: { color: colors.subtle, fontSize: fonts.body, textAlign: 'center', lineHeight: 26 } });
+
+function SummaryPill({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.summaryPill}>
+      <Text style={styles.summaryLabel}>{label}</Text>
+      <Text style={styles.summaryValue}>{value}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  content: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.xl,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: spacing.md,
+    marginBottom: spacing.lg,
+  },
+  toolbar: {
+    marginBottom: spacing.md,
+  },
+  search: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderWidth: 1,
+    borderRadius: radius.md,
+    color: colors.text,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    fontSize: fonts.body,
+  },
+  filters: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+  },
+  summaryRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginBottom: spacing.lg,
+  },
+  summaryPill: {
+    flex: 1,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+  },
+  summaryLabel: {
+    color: colors.subtle,
+    fontSize: 11,
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+  },
+  summaryValue: {
+    color: colors.text,
+    fontWeight: '700',
+    fontSize: 22,
+    marginTop: 4,
+  },
+});
