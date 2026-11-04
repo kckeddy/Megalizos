@@ -174,4 +174,26 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginTop: 4,
   },
+  empty: {
+    alignItems: 'center',
+    gap: spacing.md,
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+  },
+  emptyTitle: {
+    color: colors.text,
+    fontSize: fonts.section,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  emptyBody: {
+    color: colors.subtle,
+    fontSize: fonts.label,
+    lineHeight: 22,
+    textAlign: 'center',
+  },
 });
