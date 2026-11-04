@@ -41,7 +41,10 @@ export function AuthRouter({
                    user && isLoginRoute ? 'redirect_to_home' : 'no_action';
 
     if (action === 'redirect_to_login') {
-      router.push(loginRoute);
+      // Replace rather than push so the guarded screen is unmounted. Pushing
+      // stacks a second login screen on top of the redirecting one, which
+      // leaves a hidden duplicate of the auth form mounted in the DOM.
+      router.replace(loginRoute);
     } else if (action === 'redirect_to_home') {
       router.replace('/');
     }
