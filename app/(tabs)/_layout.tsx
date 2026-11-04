@@ -11,6 +11,6 @@ export function TabLayout() {
  <Tabs.Screen name="releases" options={{ title: 'Releases', tabBarIcon: ({ color, size }) => <Feather name="disc" color={color} size={size - 2} /> }} />
  <Tabs.Screen name="insights" options={{ title: 'Insights', tabBarIcon: ({ color, size }) => <Feather name="bar-chart-2" color={color} size={size - 2} /> }} />
  <Tabs.Screen name="royalties" options={{ title: 'Royalties', tabBarIcon: ({ color, size }) => <Feather name="credit-card" color={color} size={size - 2} /> }} />
- </Tabs>;
+ </Tabs></AuthRouter>;
 }
 export default TabLayout;
