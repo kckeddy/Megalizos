@@ -7,13 +7,14 @@ settings:
 overrides:
   immutable: 3.8.4
   nanoid: 3.3.18
-  lodash: 4.18.0
-  postcss: 8.5.18
+  lodash: 4.18.1
+  postcss: 8.5.23
   decode-uri-component: 0.5.1
   markdown-it: 14.3.3
   linkify-it: 5.0.2
   image-size: 2.0.3
   uuid: 11.1.1
+  '@graphql-tools/utils': 12.0.1
 
 importers:
 
@@ -427,7 +428,7 @@ importers:
         version: 9.2.0(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)
       react-dev-inspector:
         specifier: ^2.0.1
-        version: 2.0.1(@types/react@19.0.14)(eslint@9.28.0(jiti@1.21.7))(react@19.0.0)(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+        version: 2.0.1(@types/react@19.0.14)(eslint@9.28.0(jiti@1.21.7))(react@19.0.0)(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
@@ -1283,8 +1284,9 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/utils@9.2.1':
-    resolution: {integrity: sha512-WUw506Ql6xzmOORlriNrD6Ugx+HjVgYxt9KCXD9mHAak+eaXSwuGGPyE60hy9xaDEoXKBsG7SkG69ybitaVl6A==}
+  '@graphql-tools/utils@12.0.1':
+    resolution: {integrity: sha512-8YC6jn4xYDS6YTY6xDAgQAs/nGgvzRaIGHS8GeSfVItQzNK7Ms24CQtE3EJY+amvR+tBnhRSX0N83aGj+V/RIg==}
+    engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
@@ -2062,6 +2064,10 @@ packages:
   '@webgpu/types@0.1.21':
     resolution: {integrity: sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow==}
 
+  '@whatwg-node/promise-helpers@1.3.2':
+    resolution: {integrity: sha512-Nst5JdK47VIl9UcGwtv2Rcgyn5lWtZ0/mhRQ4G8NN2isxpq2TO30iqHzmwoJycjWuyUfg3GFXqP/gFHXeV57IA==}
+    engines: {node: '>=16.0.0'}
+
   '@wry/caches@1.0.1':
     resolution: {integrity: sha512-bXuaUNLVVkD20wcGBWRyo7j9N3TxePEWFZj2Y+r9OoUzfqmavM84+mFykRicNsBqatba5JLay1t48wxaXaWnlA==}
     engines: {node: '>=8'}
@@ -2638,6 +2644,10 @@ packages:
 
   cross-fetch@3.2.0:
     resolution: {integrity: sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==}
+
+  cross-inspect@1.0.1:
+    resolution: {integrity: sha512-Pcw1JTvZLSJH83iiGWt6fRcT+BjZlCDRVwYLbUcHzv/CRpB7r0MlSrGbIyQvVSNyGnbt7G4AXuyCiDR3POvZ1A==}
+    engines: {node: '>=16.0.0'}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -4340,9 +4350,8 @@ packages:
   lodash.throttle@4.1.1:
     resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
 
-  lodash@4.18.0:
-    resolution: {integrity: sha512-l1mfj2atMqndAHI3ls7XqPxEjV2J9ZkcNyHpoZA3r2T1LLwDB69jgkMWh71YKwhBbK0G2f4WSn05ahmQXVxupA==}
-    deprecated: Bad release. Please use lodash@4.17.21 instead.
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-symbols@2.2.0:
     resolution: {integrity: sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==}
@@ -4864,20 +4873,20 @@ packages:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
 
   postcss-js@4.1.0:
     resolution: {integrity: sha512-oIAOTqgIo7q2EOwbhb8UalYePMvYoIeRY2YKntdpFQXNosSu3vLrniGgmH9OKs/qAkfoj5oB3le/7mINW1LCfw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
 
   postcss-load-config@6.0.1:
     resolution: {integrity: sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g==}
     engines: {node: '>= 18'}
     peerDependencies:
       jiti: '>=1.21.0'
-      postcss: 8.5.18
+      postcss: 8.5.23
       tsx: ^4.8.1
       yaml: ^2.4.2
     peerDependenciesMeta:
@@ -4894,7 +4903,7 @@ packages:
     resolution: {integrity: sha512-HQbt28KulC5AJzG+cZtj9kvKB93CFCdLvog1WFLf1D+xmMvPGlBstkpTEZfK5+AN9hfJocyBFCNiqyS48bpgzQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
 
   postcss-selector-parser@6.1.5:
     resolution: {integrity: sha512-TEHFzb5KRDKaOgJ4TYE+0jyJtFbjLvkdVOu0fZ2b6MTWzoqZd4Le+61aEppWkvTlYePgOX4ATL1wsAIPMLTw6Q==}
@@ -4903,8 +4912,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.18:
-    resolution: {integrity: sha512-xdB1oSLHbz1vRWgCDalrCqEFTWzFlhqFC5tIHLMOSUIjhm3XXQ1qrFy8S/ESr1JYRRXqM3c1QFiMZUJdUTqyMQ==}
+  postcss@8.5.23:
+    resolution: {integrity: sha512-g50586zr4bZmwFiTlflMu8E0bDTb5I5gertgwAKmsdUlTQIhZtunzUlD1WSzwcVWPoAVpsrA6vlfCD7oXvRwgg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -7450,7 +7459,7 @@ snapshots:
       jsc-safe-url: 0.2.4
       lightningcss: 1.27.0
       minimatch: 9.0.7
-      postcss: 8.5.18
+      postcss: 8.5.23
       resolve-from: 5.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7567,12 +7576,12 @@ snapshots:
 
   '@graphql-codegen/plugin-helpers@3.1.2(graphql@15.10.3)':
     dependencies:
-      '@graphql-tools/utils': 9.2.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
       change-case-all: 1.0.15
       common-tags: 1.8.2
       graphql: 15.10.3
       import-from: 4.0.0
-      lodash: 4.18.0
+      lodash: 4.18.1
       tslib: 2.4.1
 
   '@graphql-codegen/visitor-plugin-common@2.13.8(graphql@15.10.3)':
@@ -7580,7 +7589,7 @@ snapshots:
       '@graphql-codegen/plugin-helpers': 3.1.2(graphql@15.10.3)
       '@graphql-tools/optimize': 1.4.0(graphql@15.10.3)
       '@graphql-tools/relay-operation-optimizer': 6.5.18(graphql@15.10.3)
-      '@graphql-tools/utils': 9.2.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
       auto-bind: 4.0.0
       change-case-all: 1.0.15
       dependency-graph: 0.11.0
@@ -7600,16 +7609,18 @@ snapshots:
   '@graphql-tools/relay-operation-optimizer@6.5.18(graphql@15.10.3)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.0(graphql@15.10.3)
-      '@graphql-tools/utils': 9.2.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
       graphql: 15.10.3
       tslib: 2.6.2
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@graphql-tools/utils@9.2.1(graphql@15.10.3)':
+  '@graphql-tools/utils@12.0.1(graphql@15.10.3)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@15.10.3)
+      '@whatwg-node/promise-helpers': 1.3.2
+      cross-inspect: 1.0.1
       graphql: 15.10.3
       tslib: 2.6.2
 
@@ -7828,9 +7839,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@react-dev-inspector/middleware@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))':
+  '@react-dev-inspector/middleware@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))':
     dependencies:
-      react-dev-utils: 12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      react-dev-utils: 12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -7838,10 +7849,10 @@ snapshots:
       - vue-template-compiler
       - webpack
 
-  '@react-dev-inspector/umi3-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))':
+  '@react-dev-inspector/umi3-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))':
     dependencies:
       '@react-dev-inspector/babel-plugin': 2.0.1
-      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -7849,10 +7860,10 @@ snapshots:
       - vue-template-compiler
       - webpack
 
-  '@react-dev-inspector/umi4-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))':
+  '@react-dev-inspector/umi4-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))':
     dependencies:
       '@react-dev-inspector/babel-plugin': 2.0.1
-      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -7860,9 +7871,9 @@ snapshots:
       - vue-template-compiler
       - webpack
 
-  '@react-dev-inspector/vite-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))':
+  '@react-dev-inspector/vite-plugin@2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))':
     dependencies:
-      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -8587,6 +8598,10 @@ snapshots:
 
   '@webgpu/types@0.1.21': {}
 
+  '@whatwg-node/promise-helpers@1.3.2':
+    dependencies:
+      tslib: 2.8.1
+
   '@wry/caches@1.0.1':
     dependencies:
       tslib: 2.6.2
@@ -9305,6 +9320,10 @@ snapshots:
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
+
+  cross-inspect@1.0.1:
+    dependencies:
+      tslib: 2.6.2
 
   cross-spawn@7.0.6:
     dependencies:
@@ -10510,7 +10529,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  fork-ts-checker-webpack-plugin@6.5.3(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18)):
+  fork-ts-checker-webpack-plugin@6.5.3(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23)):
     dependencies:
       '@babel/code-frame': 7.29.7
       '@types/json-schema': 7.0.15
@@ -10526,7 +10545,7 @@ snapshots:
       semver: 7.7.2
       tapable: 1.1.3
       typescript: 5.8.3
-      webpack: 5.104.1(postcss@8.5.18)
+      webpack: 5.104.1(postcss@8.5.23)
     optionalDependencies:
       eslint: 9.28.0(jiti@1.21.7)
 
@@ -11239,7 +11258,7 @@ snapshots:
 
   lodash.throttle@4.1.1: {}
 
-  lodash@4.18.0: {}
+  lodash@4.18.1: {}
 
   log-symbols@2.2.0:
     dependencies:
@@ -11839,28 +11858,28 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-import@15.1.0(postcss@8.5.18):
+  postcss-import@15.1.0(postcss@8.5.23):
     dependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
       postcss-value-parser: 4.2.0
       read-cache: 1.0.2
       resolve: 1.22.10
 
-  postcss-js@4.1.0(postcss@8.5.18):
+  postcss-js@4.1.0(postcss@8.5.23):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.18
+      postcss: 8.5.23
 
-  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.18):
+  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.23):
     dependencies:
       lilconfig: 3.1.4
     optionalDependencies:
       jiti: 1.21.7
-      postcss: 8.5.18
+      postcss: 8.5.23
 
-  postcss-nested@6.2.0(postcss@8.5.18):
+  postcss-nested@6.2.0(postcss@8.5.23):
     dependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
       postcss-selector-parser: 6.1.5
 
   postcss-selector-parser@6.1.5:
@@ -11870,7 +11889,7 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.18:
+  postcss@8.5.23:
     dependencies:
       nanoid: 3.3.18
       picocolors: 1.1.1
@@ -11964,18 +11983,18 @@ snapshots:
 
   react-clone-referenced-element@1.1.1: {}
 
-  react-dev-inspector@2.0.1(@types/react@19.0.14)(eslint@9.28.0(jiti@1.21.7))(react@19.0.0)(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18)):
+  react-dev-inspector@2.0.1(@types/react@19.0.14)(eslint@9.28.0(jiti@1.21.7))(react@19.0.0)(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23)):
     dependencies:
       '@react-dev-inspector/babel-plugin': 2.0.1
-      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
-      '@react-dev-inspector/umi3-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
-      '@react-dev-inspector/umi4-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
-      '@react-dev-inspector/vite-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      '@react-dev-inspector/middleware': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
+      '@react-dev-inspector/umi3-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
+      '@react-dev-inspector/umi4-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
+      '@react-dev-inspector/vite-plugin': 2.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
       '@types/react-reconciler': 0.32.0(@types/react@19.0.14)
       hotkeys-js: 3.13.11
       picocolors: 1.0.0
       react: 19.0.0
-      react-dev-utils: 12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      react-dev-utils: 12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
     transitivePeerDependencies:
       - '@types/react'
       - eslint
@@ -11984,7 +12003,7 @@ snapshots:
       - vue-template-compiler
       - webpack
 
-  react-dev-utils@12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18)):
+  react-dev-utils@12.0.1(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23)):
     dependencies:
       '@babel/code-frame': 7.27.1
       address: 1.2.2
@@ -11995,7 +12014,7 @@ snapshots:
       escape-string-regexp: 4.0.0
       filesize: 8.0.7
       find-up: 5.0.0
-      fork-ts-checker-webpack-plugin: 6.5.3(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.18))
+      fork-ts-checker-webpack-plugin: 6.5.3(eslint@9.28.0(jiti@1.21.7))(typescript@5.8.3)(webpack@5.104.1(postcss@8.5.23))
       global-modules: 2.0.0
       globby: 11.1.0
       gzip-size: 6.0.0
@@ -12010,7 +12029,7 @@ snapshots:
       shell-quote: 1.11.0
       strip-ansi: 6.0.1
       text-table: 0.2.0
-      webpack: 5.104.1(postcss@8.5.18)
+      webpack: 5.104.1(postcss@8.5.23)
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -12053,7 +12072,7 @@ snapshots:
   react-native-calendars@1.1312.1(react-native@0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
       hoist-non-react-statics: 3.3.2
-      lodash: 4.18.0
+      lodash: 4.18.1
       memoize-one: 5.2.1
       prop-types: 15.8.1
       react-native-safe-area-context: 4.5.0(react-native@0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -12068,7 +12087,7 @@ snapshots:
 
   react-native-chart-kit@6.12.0(react-native-svg@15.11.2(react-native@0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
-      lodash: 4.18.0
+      lodash: 4.18.1
       paths-js: 0.4.11
       point-in-polygon: 1.1.0
       react: 19.0.0
@@ -12232,7 +12251,7 @@ snapshots:
 
   react-native-ratings@8.0.4(react-native@0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
-      lodash: 4.18.0
+      lodash: 4.18.1
       react: 19.0.0
       react-native: 0.79.3(@babel/core@7.29.6)(@types/react@19.0.14)(react@19.0.0)
 
@@ -12424,7 +12443,7 @@ snapshots:
 
   react-string-replace@0.4.4:
     dependencies:
-      lodash: 4.18.0
+      lodash: 4.18.1
 
   react-timer-mixin@0.13.4: {}
 
@@ -12607,14 +12626,14 @@ snapshots:
       ajv-formats: 2.1.1(ajv@8.18.0)
       ajv-keywords: 5.1.0(ajv@8.18.0)
 
-  schema-utils@4.8.2(webpack@5.104.1(postcss@8.5.18)):
+  schema-utils@4.8.2(webpack@5.104.1(postcss@8.5.23)):
     dependencies:
       '@types/json-schema': 7.0.15
       ajv: 8.20.0
       ajv-formats: 3.0.1(ajv@8.20.0)
       ajv-keywords: 5.1.0(ajv@8.20.0)
     optionalDependencies:
-      webpack: 5.104.1(postcss@8.5.18)
+      webpack: 5.104.1(postcss@8.5.23)
 
   semver@6.3.1: {}
 
@@ -12970,11 +12989,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.18
-      postcss-import: 15.1.0(postcss@8.5.18)
-      postcss-js: 4.1.0(postcss@8.5.18)
-      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.18)
-      postcss-nested: 6.2.0(postcss@8.5.18)
+      postcss: 8.5.23
+      postcss-import: 15.1.0(postcss@8.5.23)
+      postcss-js: 4.1.0(postcss@8.5.23)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.23)
+      postcss-nested: 6.2.0(postcss@8.5.23)
       postcss-selector-parser: 6.1.5
       resolve: 1.22.10
       sucrase: 3.35.0
@@ -13001,15 +13020,15 @@ snapshots:
       ansi-escapes: 4.3.2
       supports-hyperlinks: 2.3.0
 
-  terser-webpack-plugin@5.6.1(postcss@8.5.18)(webpack@5.104.1(postcss@8.5.18)):
+  terser-webpack-plugin@5.6.1(postcss@8.5.23)(webpack@5.104.1(postcss@8.5.23)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
-      schema-utils: 4.8.2(webpack@5.104.1(postcss@8.5.18))
+      schema-utils: 4.8.2(webpack@5.104.1(postcss@8.5.23))
       terser: 5.42.0
-      webpack: 5.104.1(postcss@8.5.18)
+      webpack: 5.104.1(postcss@8.5.23)
     optionalDependencies:
-      postcss: 8.5.18
+      postcss: 8.5.23
 
   terser@5.42.0:
     dependencies:
@@ -13295,7 +13314,7 @@ snapshots:
 
   webpack-sources@3.7.0: {}
 
-  webpack@5.104.1(postcss@8.5.18):
+  webpack@5.104.1(postcss@8.5.23):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.8
@@ -13317,9 +13336,9 @@ snapshots:
       loader-runner: 4.3.2
       mime-types: 2.1.35
       neo-async: 2.6.2
-      schema-utils: 4.8.2(webpack@5.104.1(postcss@8.5.18))
+      schema-utils: 4.8.2(webpack@5.104.1(postcss@8.5.23))
       tapable: 2.3.3
-      terser-webpack-plugin: 5.6.1(postcss@8.5.18)(webpack@5.104.1(postcss@8.5.18))
+      terser-webpack-plugin: 5.6.1(postcss@8.5.23)(webpack@5.104.1(postcss@8.5.23))
       watchpack: 2.4.4
       webpack-sources: 3.7.0
     transitivePeerDependencies:
