@@ -13,16 +13,20 @@ export function ReleaseLibrary() {
   const router = useRouter();
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState<'newest' | 'title'>('newest');
 
-  const items = useMemo(
-    () =>
-      releases.filter(
-        (item) =>
-          (filter === 'All' || item.status === filter) &&
-          `${item.title} ${item.artist}`.toLowerCase().includes(search.toLowerCase())
-      ),
-    [releases, filter, search]
-  );
+  const items = useMemo(() => {
+    const filtered = releases.filter(
+      (item) =>
+        (filter === 'All' || item.status === filter) &&
+        `${item.title} ${item.artist}`.toLowerCase().includes(search.toLowerCase())
+    );
+    return [...filtered].sort((a, b) =>
+      sort === 'title'
+        ? a.title.localeCompare(b.title)
+        : new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }, [releases, filter, search, sort]);
 
   return (
     <Screen>
