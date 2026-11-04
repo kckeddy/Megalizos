@@ -155,8 +155,10 @@
   "pnpm": {
     "overrides": {
       "immutable": "3.8.4",
-      "nanoid": "3.3.16",
-      "lodash": "4.18.0"
+      "nanoid": "3.3.18",
+      "lodash": "4.18.0",
+      "postcss": "8.5.18",
+      "decode-uri-component": "0.5.1"
     }
   }
 }
