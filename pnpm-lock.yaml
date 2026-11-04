@@ -12,9 +12,8 @@ overrides:
   decode-uri-component: 0.5.1
   markdown-it: 14.3.3
   linkify-it: 5.0.2
-  image-size: 2.0.3
   uuid: 11.1.1
-  '@graphql-tools/utils': 12.0.1
+  '@graphql-tools/utils': 12.0.2
 
 importers:
 
@@ -1284,8 +1283,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/utils@12.0.1':
-    resolution: {integrity: sha512-8YC6jn4xYDS6YTY6xDAgQAs/nGgvzRaIGHS8GeSfVItQzNK7Ms24CQtE3EJY+amvR+tBnhRSX0N83aGj+V/RIg==}
+  '@graphql-tools/utils@12.0.2':
+    resolution: {integrity: sha512-N1j6fG12Cq5HN4826NGNtGu8O65eLCO6nHbTTboa0GEB7c2Ym2kLGU3ewHrG9DR/coL09GQjREChSG0SjUuAGA==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -2064,9 +2063,9 @@ packages:
   '@webgpu/types@0.1.21':
     resolution: {integrity: sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow==}
 
-  '@whatwg-node/promise-helpers@1.3.2':
-    resolution: {integrity: sha512-Nst5JdK47VIl9UcGwtv2Rcgyn5lWtZ0/mhRQ4G8NN2isxpq2TO30iqHzmwoJycjWuyUfg3GFXqP/gFHXeV57IA==}
-    engines: {node: '>=16.0.0'}
+  '@whatwg-node/promise-helpers@2.0.1':
+    resolution: {integrity: sha512-ziVgm01A9irPLVBaUFei64qp771BrDXldbv5pY6kgFgNtA+7zq8ux6nj/6w8bELGH/+Ttnc76ox04HIjU8nqvg==}
+    engines: {node: '>=22.15.0'}
 
   '@wry/caches@1.0.1':
     resolution: {integrity: sha512-bXuaUNLVVkD20wcGBWRyo7j9N3TxePEWFZj2Y+r9OoUzfqmavM84+mFykRicNsBqatba5JLay1t48wxaXaWnlA==}
@@ -3857,9 +3856,9 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  image-size@2.0.3:
-    resolution: {integrity: sha512-9BJAtVCBth+76NwqnEfWr3PiRnYhbquk6K/USuQ1GQajz5NgLzO7tNsnoNjHfO7LuftgkBf+CCH6j28hjMbIYQ==}
-    engines: {node: '>=18'}
+  image-size@1.2.1:
+    resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
+    engines: {node: '>=16.x'}
     hasBin: true
 
   immer@9.0.21:
@@ -4988,6 +4987,9 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  queue@6.0.2:
+    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
@@ -7576,7 +7578,7 @@ snapshots:
 
   '@graphql-codegen/plugin-helpers@3.1.2(graphql@15.10.3)':
     dependencies:
-      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.2(graphql@15.10.3)
       change-case-all: 1.0.15
       common-tags: 1.8.2
       graphql: 15.10.3
@@ -7589,7 +7591,7 @@ snapshots:
       '@graphql-codegen/plugin-helpers': 3.1.2(graphql@15.10.3)
       '@graphql-tools/optimize': 1.4.0(graphql@15.10.3)
       '@graphql-tools/relay-operation-optimizer': 6.5.18(graphql@15.10.3)
-      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.2(graphql@15.10.3)
       auto-bind: 4.0.0
       change-case-all: 1.0.15
       dependency-graph: 0.11.0
@@ -7609,17 +7611,17 @@ snapshots:
   '@graphql-tools/relay-operation-optimizer@6.5.18(graphql@15.10.3)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.0(graphql@15.10.3)
-      '@graphql-tools/utils': 12.0.1(graphql@15.10.3)
+      '@graphql-tools/utils': 12.0.2(graphql@15.10.3)
       graphql: 15.10.3
       tslib: 2.6.2
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@graphql-tools/utils@12.0.1(graphql@15.10.3)':
+  '@graphql-tools/utils@12.0.2(graphql@15.10.3)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@15.10.3)
-      '@whatwg-node/promise-helpers': 1.3.2
+      '@whatwg-node/promise-helpers': 2.0.1
       cross-inspect: 1.0.1
       graphql: 15.10.3
       tslib: 2.6.2
@@ -8598,7 +8600,7 @@ snapshots:
 
   '@webgpu/types@0.1.21': {}
 
-  '@whatwg-node/promise-helpers@1.3.2':
+  '@whatwg-node/promise-helpers@2.0.1':
     dependencies:
       tslib: 2.8.1
 
@@ -10776,7 +10778,9 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  image-size@2.0.3: {}
+  image-size@1.2.1:
+    dependencies:
+      queue: 6.0.2
 
   immer@9.0.21: {}
 
@@ -11480,7 +11484,7 @@ snapshots:
       flow-enums-runtime: 0.0.6
       graceful-fs: 4.2.11
       hermes-parser: 0.28.1
-      image-size: 2.0.3
+      image-size: 1.2.1
       invariant: 2.2.4
       jest-worker: 29.7.0
       jsc-safe-url: 0.2.4
@@ -11971,6 +11975,10 @@ snapshots:
   querystring@0.2.1: {}
 
   queue-microtask@1.2.3: {}
+
+  queue@6.0.2:
+    dependencies:
+      inherits: 2.0.4
 
   range-parser@1.2.1: {}
 
