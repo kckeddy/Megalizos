@@ -145,7 +145,7 @@
   },
   "pnpm": {
     "overrides": {
-      "immutable@<4.0.0": "3.8.3",
+      "immutable@<4.0.0": "3.8.4",
       "shell-quote@<1.11.0": "1.11.0",
       "tar@<7.5.21": "7.5.21",
       "@xmldom/xmldom@<0.8.15": "0.8.15",
