@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  immutable@<4.0.0: 3.8.3
+  immutable@<4.0.0: 3.8.4
   shell-quote@<1.11.0: 1.11.0
   tar@<7.5.21: 7.5.21
   '@xmldom/xmldom@<0.8.15': 0.8.15
@@ -3903,8 +3903,8 @@ packages:
   immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
 
-  immutable@3.8.3:
-    resolution: {integrity: sha512-AUY/VyX0E5XlibOmWt10uabJzam1zlYjwiEgQSDc5+UIkFNaF9WM0JxXKaNMGf+F/ffUF+7kRKXM9A7C0xXqMg==}
+  immutable@3.8.4:
+    resolution: {integrity: sha512-ZQv17KolYrYmsDoDB8N67zhIKsNi9mGYlk96y/yuxyAqJB2hLzSGSM7k/sB0/ZvO4kx27U9+fBeD/XlLGh/uXQ==}
     engines: {node: '>=0.10.0'}
 
   immutable@4.3.9:
@@ -6398,7 +6398,7 @@ snapshots:
       fbjs: 3.0.5
       glob: 10.5.0
       graphql: 15.10.3
-      immutable: 3.8.3
+      immutable: 3.8.4
       invariant: 2.2.4
       nullthrows: 1.1.1
       relay-runtime: 12.0.0
@@ -10815,7 +10815,7 @@ snapshots:
 
   immer@9.0.21: {}
 
-  immutable@3.8.3: {}
+  immutable@3.8.4: {}
 
   immutable@4.3.9: {}
 
