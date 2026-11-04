@@ -69,6 +69,20 @@ export function ReleaseLibrary() {
               ))}
             </View>
 
+            <View style={styles.filters}>
+              {([
+                ['newest', 'Newest'],
+                ['title', 'A–Z'],
+              ] as const).map(([value, label]) => (
+                <Chip
+                  key={value}
+                  label={label}
+                  selected={sort === value}
+                  onPress={() => setSort(value)}
+                />
+              ))}
+            </View>
+
             <View style={styles.summaryRow}>
               <SummaryPill label="Live" value={String(releases.filter((item) => item.status === 'Live').length)} />
               <SummaryPill label="Drafts" value={String(releases.filter((item) => item.status === 'Draft').length)} />
