@@ -151,5 +151,12 @@
     "react-dev-inspector": "^2.0.1",
     "typescript": "~5.8.3"
   },
-  "private": true
+  "private": true,
+  "pnpm": {
+    "overrides": {
+      "immutable": "3.8.4",
+      "nanoid": "3.3.16",
+      "lodash": "4.18.0"
+    }
+  }
 }
