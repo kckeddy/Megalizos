@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TextInput } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Feather } from '@expo/vector-icons';
 import { Screen, AppHeader, PageHeading } from '@/components/layout/Screen';
 import { Button, Chip } from '@/components/ui/Controls';
 import { ReleaseCard } from '@/components/feature/ReleaseCard';
@@ -78,6 +79,31 @@ export function ReleaseLibrary() {
             compact={false}
           />
         )}
+        ListEmptyComponent={
+          <View style={styles.empty}>
+            <Feather name="inbox" size={32} color={colors.subtle} />
+            <Text style={styles.emptyTitle}>
+              {releases.length === 0 ? 'No releases yet' : 'No matching releases'}
+            </Text>
+            <Text style={styles.emptyBody}>
+              {releases.length === 0
+                ? 'Upload your first single, EP or album to start building your catalog.'
+                : 'Try a different search term or status filter.'}
+            </Text>
+            {releases.length === 0 ? (
+              <Button label="Upload a release" icon="plus" onPress={() => router.push('/upload')} />
+            ) : (
+              <Button
+                label="Clear filters"
+                secondary
+                onPress={() => {
+                  setFilter('All');
+                  setSearch('');
+                }}
+              />
+            )}
+          </View>
+        }
       />
     </Screen>
   );
