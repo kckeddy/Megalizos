@@ -10,7 +10,7 @@ import { colors, fonts, spacing, radius } from '@/constants/theme';
 interface ScreenProps { children: ReactNode; fullScreen?: boolean; }
 export function Screen({ children, fullScreen = false }: ScreenProps) {
   const { user, loading } = useAuth(); const { storageError, reloadLibrary } = useReleases();
-  if (!loading && !user) return <Redirect href="/" />;
+  if (!loading && !user) return <Redirect href="/login" />;
   return <SafeAreaView edges={fullScreen ? ['top', 'bottom'] : ['top']} style={styles.safe}><View style={styles.container}>{loading ? <View style={styles.loading}><ActivityIndicator color={colors.primary} /><Text style={styles.subtitle}>Opening your artist workspace…</Text></View> : children}{storageError && user ? <View style={styles.storage}><View style={styles.storageMessage}><Feather name="alert-circle" size={18} color={colors.danger} /><Text accessibilityRole="alert" style={styles.error}>{storageError}</Text></View><Pressable onPress={reloadLibrary} style={({ pressed }) => [styles.retry, pressed ? styles.pressed : null]} accessibilityRole="button"><Text style={styles.retryText}>Retry device storage</Text></Pressable></View> : null}</View></SafeAreaView>;
 }
 export function AppHeader() {

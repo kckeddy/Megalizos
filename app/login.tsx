@@ -1,9 +1,10 @@
+import { Redirect } from 'expo-router';
 import { useAuth } from '@/template';
 import { ArtistAuth } from '@/components/feature/ArtistAuth';
-import { Index } from '@/app/index';
 export function LoginPage() {
-  const { user } = useAuth();
-  // AuthRouter in the index route owns post-authentication navigation.
-  return user ? <Index /> : <ArtistAuth />;
+  const { user, loading } = useAuth();
+  // The AuthRouter in the (tabs) layout owns post-authentication navigation.
+  if (!loading && user) return <Redirect href="/" />;
+  return <ArtistAuth />;
 }
 export default LoginPage;
