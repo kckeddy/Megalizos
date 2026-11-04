@@ -8,7 +8,8 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
-const root = path.join(__dirname, '..', 'web-build');
+// WEB_ROOT lets the same server serve a different export directory (e.g. web-dev).
+const root = path.join(__dirname, '..', process.env.WEB_ROOT || 'web-build');
 const port = Number(process.argv[2] || process.env.PORT || 8080);
 
 const types = {
