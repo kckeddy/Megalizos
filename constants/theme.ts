@@ -12,6 +12,10 @@ export const colors = {
   warning: '#FBBF24',
   danger: '#FF6B6B',
   accent: '#8B5CF6',
+  ink: '#062018',
+  chart: '#2C7A6B',
+  heroFade: 'rgba(10, 15, 20, 0.65)',
+  heroClear: 'rgba(10, 15, 20, 0)',
 };
 
 export const spacing = { xs: 4, sm: 8, md: 16, lg: 24, xl: 32, xxl: 48 };

@@ -119,7 +119,7 @@ const regionByCountry: Record<string, { region: string; currency: string; countr
 export function getPricingProfile(): PricingProfile {
   const locales = Localization.getLocales?.() ?? [];
   const firstLocale = locales[0];
-  const countryCode = (firstLocale?.countryCode || firstLocale?.regionCode || 'US').toUpperCase();
+  const countryCode = (firstLocale?.regionCode || 'US').toUpperCase();
   const source = regionByCountry[countryCode] || {
     region: 'USA',
     currency: 'USD',

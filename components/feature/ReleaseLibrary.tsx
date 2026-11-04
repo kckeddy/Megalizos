@@ -76,7 +76,6 @@ export function ReleaseLibrary() {
           <ReleaseCard
             release={item}
             onPress={() => router.push({ pathname: '/release/[id]', params: { id: item.id } })}
-            compact={false}
           />
         )}
         ListEmptyComponent={

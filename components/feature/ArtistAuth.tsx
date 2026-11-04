@@ -187,13 +187,13 @@ export function ArtistAuth() {
 
             <Button
               label={primaryLabel}
-              onPress={() => form.perform()}
+              onPress={() => form.submit()}
               disabled={form.disabled}
               icon={registering ? 'check' : 'arrow-right'}
             />
 
             {registering ? (
-              <Pressable onPress={() => form.perform(true)} style={styles.inlineAction}>
+              <Pressable onPress={() => form.resend()} style={styles.inlineAction}>
                 <Text style={styles.inlineActionText}>Resend verification code</Text>
               </Pressable>
             ) : null}
