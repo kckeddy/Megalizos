@@ -3,6 +3,7 @@ import { Feather } from '@expo/vector-icons';
 import { Screen, PageHeading } from '@/components/layout/Screen';
 import { Button, Field, Panel } from '@/components/ui/Controls';
 import { useArtistAccount } from '@/hooks/useArtistAccount';
+import { PlanSelector } from '@/components/feature/PlanSelector';
 import { colors, fonts, radius, spacing } from '@/constants/theme';
 export function ArtistAccount() {
   const account = useArtistAccount(); const initials = (account.artistName || account.user?.email || 'Artist').split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase();
